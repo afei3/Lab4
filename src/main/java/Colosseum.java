@@ -73,6 +73,27 @@ public class Colosseum {
      */
     public static Pokemon buildPokemon() {
         Pokemon tempPokemon = new Pokemon();
+        System.out.println("Please enter the attack level of the pokemon less than 50");
+        int test = myScan.nextInt();
+        while (test > MAX_HIT_POINTS - 1 || test < 1) {
+            System.out.println("Sorry please enter a valid number");
+            test = myScan.nextInt();
+        }
+        tempPokemon.attackLevel = test;
+        System.out.println("Please enter the defense level of the pokemon.");
+        int def = myScan.nextInt();
+        while (def > MAX_HIT_POINTS - 1 - test || def < 1) {
+            System.out.println("Sorry please enter a valid number");
+            def = myScan.nextInt();
+        }
+        tempPokemon.defenseLevel = def;
+        System.out.println("Please enter the number of hitpoints your pokemon has");
+        int hpTest = myScan.nextInt();
+        while (hpTest > MAX_HIT_POINTS - 1 || test < 1) {
+            System.out.println("Sorry please enter a valid number");
+            hpTest = myScan.nextInt();
+        }
+        tempPokemon.hitPoints = hpTest;
         return tempPokemon;
     }
 
@@ -90,7 +111,15 @@ public class Colosseum {
      * Implement this function.
      */
     public static void printWhoIsAhead() {
-        System.out.println("Implement me!");
+        if (firstPokemon.hitPoints > secondPokemon.hitPoints) {
+            System.out.println(firstPokemon.name + " is winning!!!!!1!!!11!");
+        } else {
+            if (firstPokemon.hitPoints < secondPokemon.hitPoints) {
+                System.out.println(secondPokemon.name + " is winning!!!!!1!!!11!");
+            } else {
+                System.out.println("It's a tie XXXDDDDDD");
+            }
+        }
     }
 
     /**
@@ -101,7 +130,11 @@ public class Colosseum {
      * Write this function.
      */
     public static void determineWinner() {
-        System.out.println("Implement me!");
+        if (firstPokemon.hitPoints <= 0) {
+            System.out.println(secondPokemon.name + " is the Winner POGGERS XDXDXD OwO Umu");
+        } else {
+            System.out.println(firstPokemon.name + " is the Winner PogChamp WOOOOOOOOOO ASDFASFAEWFFAFEe");
+        }
     }
 
     /**
